@@ -1,0 +1,10 @@
+{
+  "name": "quizhub",
+  "version": "1.0.0",
+  "description": "QuizHub – role-based online Quiz Management System (Software Engineering micro project)",
+  "scripts": {
+    "start": "python -m http.server 5173",
+    "test": "node --test tests/"
+  },
+  "license": "MIT"
+}
