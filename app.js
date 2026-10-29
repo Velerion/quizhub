@@ -123,8 +123,8 @@ function users() {
   ${db.users.map(u => `<tr><td>${esc(u.name)}</td><td>${esc(u.username)}</td>
   <td><select aria-label="Role" style="margin:0;width:auto" onchange="setRole('${u.id}',this.value)" ${u.id === me.id ? 'disabled' : ''}>
   ${['student', 'teacher', 'admin'].map(r => `<option value="${r}" ${u.role === r ? 'selected' : ''}>${r}</option>`).join('')}</select></td>
-  <td class="row"><button class="sm sec" onclick="resetPw('${u.id}')">Reset password</button>
-  ${u.id !== me.id ? `<button class="sm danger" onclick="delUser('${u.id}')">Delete</button>` : ''}</td></tr>`).join('')}</table></div></div>
+  <td><div class="row"><button class="sm sec" onclick="resetPw('${u.id}')">Reset password</button>
+  ${u.id !== me.id ? `<button class="sm danger" onclick="delUser('${u.id}')">Delete</button>` : ''}</div></td></tr>`).join('')}</table></div></div>
   <div class="card"><h3>Add user</h3><form onsubmit="return addUser(event)" class="row">
   <input id="n_name" placeholder="Full name" aria-label="Full name" required style="flex:1"><input id="n_user" placeholder="Username" aria-label="Username" required style="flex:1">
   <input id="n_pass" placeholder="Password" aria-label="Password" required style="flex:1"><select id="n_role" aria-label="Role" style="flex:1"><option>student</option><option>teacher</option><option>admin</option></select>
@@ -184,9 +184,9 @@ function quizList(list, title) {
   <div class="card">${!list.length ? '<p class="mu">No quizzes yet.</p>' : `<div class="tw"><table><tr><th>Title</th><th>Subject</th><th>Qs</th><th>Time</th><th>Author</th><th>Attempts</th><th>Status</th><th></th></tr>
   ${list.map(q => `<tr><td>${esc(q.title)}</td><td>${esc(q.subject)}</td><td>${q.questions.length}</td><td>${q.duration} min</td>
   <td>${esc(byId(db.users, q.teacherId)?.name || '?')}</td><td>${n(q.id)}</td><td><span class="badge ${q.published ? 'ok' : 'warn'}">${q.published ? 'Published' : 'Draft'}</span></td>
-  <td class="row"><button class="sm sec" onclick="togglePub('${q.id}')">${q.published ? 'Unpublish' : 'Publish'}</button>
+  <td><div class="row"><button class="sm sec" onclick="togglePub('${q.id}')">${q.published ? 'Unpublish' : 'Publish'}</button>
   <button class="sm sec" onclick="go('board',{id:'${q.id}'})">Leaderboard</button>
-  <button class="sm sec" onclick="go('edit',{id:'${q.id}'})">Edit</button><button class="sm danger" onclick="delQuiz('${q.id}')">Delete</button></td></tr>`).join('')}</table></div>`}</div>`;
+  <button class="sm sec" onclick="go('edit',{id:'${q.id}'})">Edit</button><button class="sm danger" onclick="delQuiz('${q.id}')">Delete</button></div></td></tr>`).join('')}</table></div>`}</div>`;
 }
 function togglePub(id) {
   const q = byId(db.quizzes, id);
