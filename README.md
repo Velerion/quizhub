@@ -3,7 +3,7 @@
 A role-based online quiz management system built with plain HTML, CSS and JavaScript (no build step, no server).
 Software Engineering (25CS312) micro project.
 
-**Live demo:** https://mvsanjayniranjan.github.io/quizhub/
+**Live demo:** https://velerion.github.io/quizhub/
 
 | Role | Username | Password |
 |------|----------|----------|
