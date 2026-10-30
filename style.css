@@ -57,6 +57,7 @@ select.inline { width: auto; min-height: 36px; padding: 0.35rem 0.5rem; }
 .row { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; }
 .row.end { justify-content: flex-end; }
 .row.nowrap { flex-wrap: nowrap; }
+@media (max-width: 1440px) { .row.nowrap { flex-wrap: wrap; } }
 /* Playfair only ships old-style figures, so large numbers (.stats b, .timer, .score .big, td.rank) are set in the text face. */
 
 /* ---------- Sign-in ---------- */
@@ -122,7 +123,7 @@ select.inline { width: auto; min-height: 36px; padding: 0.35rem 0.5rem; }
 table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
 th { text-align: left; font-size: 0.8125rem; font-weight: 600; color: var(--ink-2); padding: 0 var(--s3) var(--s3); white-space: nowrap; }
 td { padding: var(--s3); border-top: 1px solid var(--surface-2); vertical-align: middle; }
-td.clip { max-width: 280px; overflow-wrap: anywhere; }
+td.clip { min-width: 170px; max-width: 280px; overflow-wrap: break-word; }
 .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 td.end { text-align: right; }
 tr.mine td { background: var(--accent-soft); font-weight: 600; }
